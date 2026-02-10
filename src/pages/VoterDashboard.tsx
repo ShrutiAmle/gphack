@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 interface VoterStats {
@@ -15,7 +15,7 @@ interface VoterStats {
 
 export default function VoterDashboard() {
   const navigate = useNavigate()
-  const [stats, setStats] = useState<VoterStats>({
+  const [stats] = useState<VoterStats>({
     voterId: 'V-2026001234',
     voterName: 'John Doe',
     constituency: 'Ward 5, Local Body',
@@ -24,12 +24,6 @@ export default function VoterDashboard() {
     votesReceived: 1250,
     turnout: 50
   })
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    // Simulate data load
-    setLoading(false)
-  }, [])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 py-12 px-4 sm:px-6 lg:px-8">

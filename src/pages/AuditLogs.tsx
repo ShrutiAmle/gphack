@@ -17,7 +17,7 @@ export default function AuditLogs() {
   const [filterModule, setFilterModule] = useState('')
   const [filterStatus, setFilterStatus] = useState('')
 
-  const auditLogs: AuditLog[] = [
+  const auditLogs: AuditLog[] = useMemo(() => [
     {
       id: 1,
       timestamp: '2024-01-15 14:32:45',
@@ -108,7 +108,7 @@ export default function AuditLogs() {
       details: 'Voter registration V-2026001005 marked as cancelled',
       status: 'warning'
     }
-  ]
+  ], [])
 
   const filteredLogs = useMemo(() => {
     return auditLogs.filter(log => {
@@ -117,7 +117,7 @@ export default function AuditLogs() {
       if (filterStatus && log.status !== filterStatus) return false
       return true
     })
-  }, [filterAction, filterModule, filterStatus])
+  }, [filterAction, filterModule, filterStatus, auditLogs])
 
   const getStatusIcon = (status: string) => {
     switch (status) {

@@ -1,5 +1,5 @@
 /** @type {import('eslint').Linter.Config} */
-export default {
+module.exports = {
   root: true,
   env: { browser: true, es2020: true },
   extends: [
@@ -9,11 +9,7 @@ export default {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    // Keep rules minimal for compatibility
   },
 }

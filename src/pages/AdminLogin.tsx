@@ -10,11 +10,13 @@ export default function AdminLogin({ onLogin }: AdminLoginProps) {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    mfaEnabled: false
+    mfaEnabled: false,
+    rememberMe: false
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target
@@ -53,8 +55,7 @@ export default function AdminLogin({ onLogin }: AdminLoginProps) {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
 
-    // Mock authentication (admin/admin or superadmin/admin)
-    if ((formData.username === 'admin' || formData.username === 'superadmin') && formData.password === 'admin') {
+    if ((formData.username === 'admin' || formData.username === 'superadmin') && formData.password === 'admin123') {
       setMessage('Login successful! Redirecting to dashboard...')
       setTimeout(() => {
         onLogin()
@@ -127,12 +128,12 @@ export default function AdminLogin({ onLogin }: AdminLoginProps) {
             </div>
 
             {/* Password */}
-            <div>
+            <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Password
               </label>
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 value={formData.password}
                 onChange={handleInputChange}
@@ -147,6 +148,18 @@ export default function AdminLogin({ onLogin }: AdminLoginProps) {
               {errors.password && (
                 <p className="text-red-600 text-xs mt-1 font-semibold">{errors.password}</p>
               )}
+              <div className="flex items-center justify-between">
+                <label className="inline-flex items-center text-sm text-gray-600">
+                  <input
+                    type="checkbox"
+                    className="w-4 h-4 text-primary rounded focus:ring-2 focus:ring-primary"
+                    checked={showPassword}
+                    onChange={() => setShowPassword(prev => !prev)}
+                  />
+                  <span className="ml-2">Show password</span>
+                </label>
+                <a href="#" className="text-primary text-sm hover:underline">Forgot password?</a>
+              </div>
             </div>
 
             {/* MFA Checkbox */}
@@ -162,6 +175,21 @@ export default function AdminLogin({ onLogin }: AdminLoginProps) {
               />
               <label htmlFor="mfa" className="ml-2 text-sm text-gray-600 cursor-pointer">
                 Enable Multi-Factor Authentication
+              </label>
+            </div>
+
+            <div className="flex items-center">
+              <input
+                type="checkbox"
+                id="rememberMe"
+                name="rememberMe"
+                checked={formData.rememberMe}
+                onChange={handleInputChange}
+                className="w-4 h-4 text-primary rounded focus:ring-2 focus:ring-primary"
+                disabled={loading}
+              />
+              <label htmlFor="rememberMe" className="ml-2 text-sm text-gray-600 cursor-pointer">
+                Remember me on this device
               </label>
             </div>
 
@@ -188,7 +216,7 @@ export default function AdminLogin({ onLogin }: AdminLoginProps) {
           {/* Demo Info */}
           <div className="bg-blue-50 p-4 rounded-lg text-sm text-gray-700 space-y-1">
             <p><strong>Username:</strong> admin or superadmin</p>
-            <p><strong>Password:</strong> admin</p>
+            <p><strong>Password:</strong> admin123</p>
             <p className="text-xs text-gray-600 mt-2 italic">For demonstration purposes only</p>
           </div>
 

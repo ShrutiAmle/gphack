@@ -23,11 +23,11 @@ export default function Navigation({ isVoterLoggedIn, isAdminLoggedIn, onLogout 
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo - Enhanced */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg">
-              <span className="text-primary font-bold text-2xl group-hover:rotate-12 transition-transform duration-300">V</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-lg">
+              <span className="text-primary font-bold text-2xl">V</span>
             </div>
-            <span className="text-white font-bold text-xl hidden sm:inline group-hover:text-blue-100 transition-colors">
+            <span className="text-white font-bold text-xl hidden sm:inline">
               E-Voting
             </span>
           </Link>
@@ -36,13 +36,13 @@ export default function Navigation({ isVoterLoggedIn, isAdminLoggedIn, onLogout 
           <div className="flex items-center space-x-8">
             <Link 
               to="/" 
-              className="text-white hover:text-blue-100 px-4 py-2 rounded-lg transition-all duration-300 font-semibold hover:bg-white/10 transform hover:scale-110"
+              className="text-white px-4 py-2 rounded-lg font-semibold"
             >
               Home
             </Link>
             <Link 
               to="/results" 
-              className="text-white hover:text-blue-100 px-4 py-2 rounded-lg transition-all duration-300 font-semibold hover:bg-white/10 transform hover:scale-110"
+              className="text-white px-4 py-2 rounded-lg font-semibold"
             >
               Results
             </Link>
@@ -50,7 +50,7 @@ export default function Navigation({ isVoterLoggedIn, isAdminLoggedIn, onLogout 
             {isVoterLoggedIn && (
               <Link
                 to="/voter-dashboard"
-                className="text-white hover:text-blue-100 px-4 py-2 rounded-lg transition-all duration-300 font-semibold hover:bg-white/10 transform hover:scale-110"
+                className="text-white px-4 py-2 rounded-lg font-semibold"
               >
                 Dashboard
               </Link>
@@ -60,13 +60,13 @@ export default function Navigation({ isVoterLoggedIn, isAdminLoggedIn, onLogout 
               <>
                 <Link
                   to="/admin/dashboard"
-                  className="text-white hover:text-blue-100 px-4 py-2 rounded-lg transition-all duration-300 font-semibold hover:bg-white/10 transform hover:scale-110"
+                  className="text-white px-4 py-2 rounded-lg font-semibold"
                 >
                   Admin
                 </Link>
                 <Link
                   to="/admin/election-management"
-                  className="text-white hover:text-blue-100 px-4 py-2 rounded-lg transition-all duration-300 font-semibold hover:bg-white/10 transform hover:scale-110"
+                  className="text-white px-4 py-2 rounded-lg font-semibold"
                 >
                   Elections
                 </Link>
@@ -76,7 +76,7 @@ export default function Navigation({ isVoterLoggedIn, isAdminLoggedIn, onLogout 
             {(isVoterLoggedIn || isAdminLoggedIn) ? (
               <button
                 onClick={handleLogout}
-                className={`bg-red-500 text-white hover:bg-red-600 px-6 py-2 rounded-lg transition-all duration-300 font-semibold transform hover:scale-110 hover:shadow-lg ${
+                className={`bg-red-500 text-white px-6 py-2 rounded-lg font-semibold ${
                   isAnimating ? 'scale-95 opacity-50' : ''
                 }`}
               >
@@ -86,13 +86,13 @@ export default function Navigation({ isVoterLoggedIn, isAdminLoggedIn, onLogout 
               <div className="flex items-center gap-3">
                 <Link
                   to="/voter-login"
-                  className="bg-white text-primary hover:bg-gray-100 px-6 py-2 rounded-lg transition-all duration-300 font-semibold transform hover:scale-110 hover:shadow-lg"
+                  className="bg-white text-primary px-6 py-2 rounded-lg font-semibold"
                 >
                   Voter Login
                 </Link>
                 <Link
                   to="/admin/login"
-                  className="bg-black/15 text-white hover:bg-black/25 px-6 py-2 rounded-lg transition-all duration-300 font-semibold"
+                  className="bg-black/15 text-white px-6 py-2 rounded-lg font-semibold"
                 >
                   Admin
                 </Link>

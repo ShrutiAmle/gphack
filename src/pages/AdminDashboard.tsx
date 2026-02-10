@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Alert from '../components/Alert'
 
 interface ElectionStats {
   totalVoters: number
@@ -9,64 +8,12 @@ interface ElectionStats {
 }
 
 export default function AdminDashboard() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
   const [stats] = useState<ElectionStats>({
     totalVoters: 2850000,
     votesReceived: 850000,
     avgVotingTime: 3.5,
     systemUptime: 99.95
   })
-
-  const handleAdminLogin = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (password === 'admin123') {
-      setIsAuthenticated(true)
-      setError('')
-    } else {
-      setError('Invalid admin password')
-    }
-  }
-
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-red-50 to-pink-100 flex items-center justify-center p-4">
-        <div className="card max-w-md w-full p-8">
-          <h1 className="heading-2 text-center mb-8">Admin Dashboard</h1>
-          
-          {error && <Alert type="error" message={error} onClose={() => setError('')} />}
-          
-          <form onSubmit={handleAdminLogin} className="space-y-6">
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Admin Password
-              </label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password"
-                className="input-field"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full btn-primary"
-            >
-              Login to Dashboard
-            </button>
-          </form>
-          
-          <div className="mt-6 p-4 bg-yellow-100 border border-yellow-400 rounded-lg">
-            <p className="text-xs text-gray-700">
-              <strong>Demo:</strong> Use password: <code>admin123</code>
-            </p>
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   const turnout = ((stats.votesReceived / stats.totalVoters) * 100).toFixed(2)
 
@@ -79,15 +26,6 @@ export default function AdminDashboard() {
             <h1 className="heading-1">Admin Dashboard</h1>
             <p className="text-gray-600">Election Management & Monitoring</p>
           </div>
-          <button
-            onClick={() => {
-              setIsAuthenticated(false)
-              setPassword('')
-            }}
-            className="btn-secondary"
-          >
-            Logout
-          </button>
         </div>
 
         {/* Key Metrics */}

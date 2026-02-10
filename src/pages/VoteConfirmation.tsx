@@ -1,24 +1,22 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 interface ConfirmationReceipt {
   confirmationCode: string
-  candidateName: string
-  candidateSymbol: string
   timestamp: string
   voterId: string
   constituency: string
+  encryptedBallotHash: string
 }
 
 export default function VoteConfirmation() {
   const navigate = useNavigate()
-  const [receipt, setReceipt] = useState<ConfirmationReceipt>({
+  const [receipt] = useState<ConfirmationReceipt>({
     confirmationCode: 'VC-' + Math.random().toString(36).substring(2, 11).toUpperCase(),
-    candidateName: 'INC - Indian National Congress',
-    candidateSymbol: 'INC',
     timestamp: new Date().toLocaleString('en-IN'),
     voterId: 'V-2026001234',
-    constituency: 'Ward 5, Local Body'
+    constituency: 'Ward 5, Local Body',
+    encryptedBallotHash: 'EBH-' + Math.random().toString(36).substring(2, 14)
   })
 
   const handlePrint = () => {
@@ -57,11 +55,12 @@ export default function VoteConfirmation() {
             <p className="text-xs text-gray-500 mt-2">Keep this code for your records</p>
           </div>
 
-          {/* Vote Details */}
+          {/* Encrypted Vote */}
           <div className="space-y-6 mb-8">
             <div className="border-b border-gray-200 pb-4">
-              <p className="text-xs text-gray-600 font-semibold mb-1">YOUR VOTE</p>
-              <p className="text-xl font-bold text-gray-800">{receipt.candidateName}</p>
+              <p className="text-xs text-gray-600 font-semibold mb-1">YOUR VOTE (ENCRYPTED)</p>
+              <p className="text-lg font-bold text-gray-800">Encrypted — Not Displayed</p>
+              <p className="text-xs text-gray-500 mt-1">Ballot Hash: <span className="font-mono">{receipt.encryptedBallotHash}</span></p>
             </div>
 
             <div className="border-b border-gray-200 pb-4">
