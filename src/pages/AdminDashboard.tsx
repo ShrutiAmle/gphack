@@ -72,7 +72,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex justify-between items-center mb-12">
           <div>
@@ -128,15 +128,15 @@ export default function AdminDashboard() {
                   <p className="font-semibold text-gray-800">Voting Status</p>
                   <p className="text-sm text-gray-600">Election ongoing</p>
                 </div>
-                <span className="badge-success">🔴 LIVE</span>
+                <span className="badge-success">LIVE</span>
               </div>
 
               <button className="w-full bg-yellow-500 text-white hover:bg-yellow-600 px-4 py-3 rounded-lg font-semibold transition">
-                ⏸️ Pause Voting
+                Pause Voting
               </button>
 
               <button className="w-full bg-red-500 text-white hover:bg-red-600 px-4 py-3 rounded-lg font-semibold transition">
-                ⏹️ End Election
+                End Election
               </button>
 
               <button className="w-full bg-primary text-white hover:bg-blue-700 px-4 py-3 rounded-lg font-semibold transition">
@@ -216,7 +216,7 @@ export default function AdminDashboard() {
 
         {/* Info Box */}
         <div className="card p-8 bg-blue-50 border-2 border-primary">
-          <h3 className="heading-3 mb-4">🔐 Admin Security Notice</h3>
+          <h3 className="heading-3 mb-4">Admin Security Notice</h3>
           <ul className="space-y-2 text-gray-700 text-sm">
             <li>✓ All admin actions are logged and auditable</li>
             <li>✓ Multiple authentication layers protect sensitive operations</li>

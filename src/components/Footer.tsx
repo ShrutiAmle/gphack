@@ -3,7 +3,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white mt-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div>
@@ -25,9 +25,9 @@ export default function Footer() {
           <div>
             <h4 className="heading-3 text-white mb-4">Features</h4>
             <ul className="space-y-2 text-sm">
-              <li><span className="text-gray-400">✓ Secure Voting</span></li>
-              <li><span className="text-gray-400">✓ Transparent Results</span></li>
-              <li><span className="text-gray-400">✓ Real-time Updates</span></li>
+              <li><span className="text-gray-400">Secure Voting</span></li>
+              <li><span className="text-gray-400">Transparent Results</span></li>
+              <li><span className="text-gray-400">Real-time Updates</span></li>
             </ul>
           </div>
 

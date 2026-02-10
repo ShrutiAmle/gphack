@@ -78,7 +78,6 @@ export default function VoterLogin({ onLogin }: VoterLoginProps) {
       <div className="w-full max-w-md">
         {/* Security Info */}
         <div className="text-center mb-8">
-          <div className="text-6xl mb-4">🔐</div>
           <h1 className="heading-2">Secure Voter Login</h1>
           <p className="text-gray-600 mt-2">Your identity is protected with military-grade encryption</p>
         </div>
@@ -195,7 +194,7 @@ export default function VoterLogin({ onLogin }: VoterLoginProps) {
           {/* Info Box */}
           <div className="mt-6 pt-6 border-t border-gray-200">
             <p className="text-xs text-gray-500 text-center">
-              🔒 Your data is encrypted and secure. We follow all election commission guidelines.
+              Your data is encrypted and secure. We follow all election commission guidelines.
             </p>
           </div>
         </div>

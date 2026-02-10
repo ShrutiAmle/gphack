@@ -1,7 +1,6 @@
 interface ProgressBarProps {
   label: string
   votes: number
-  totalVotes: number
   percentage: number
   color?: string
 }
@@ -9,7 +8,6 @@ interface ProgressBarProps {
 export default function ProgressBar({
   label,
   votes,
-  totalVotes,
   percentage,
   color = 'bg-blue-500'
 }: ProgressBarProps) {

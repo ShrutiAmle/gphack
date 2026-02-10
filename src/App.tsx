@@ -48,7 +48,7 @@ function App() {
                 ) : isVoterLoggedIn && hasVoted ? (
                   <div className="min-h-screen flex items-center justify-center">
                     <div className="text-center">
-                      <h2 className="heading-2">✓ Vote Submitted Successfully</h2>
+                      <h2 className="heading-2">Vote Submitted Successfully</h2>
                       <p className="text-gray-600 mb-6">Thank you for voting!</p>
                       <a href="/results" className="btn-primary">View Results</a>
                     </div>
