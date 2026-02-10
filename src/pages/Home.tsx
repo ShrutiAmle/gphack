@@ -32,13 +32,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500">
             <Link 
               to="/voter-login" 
-              className="btn-primary bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 transform hover:scale-110 transition-all duration-300"
+              className="btn-outline-hero text-lg px-8 py-4"
             >
               Cast Your Vote
             </Link>
             <Link 
               to="/results" 
-              className="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-4 transform hover:scale-110 transition-all duration-300"
+              className="btn-primary text-lg px-8 py-4"
             >
               View Results
             </Link>

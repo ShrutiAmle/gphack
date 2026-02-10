@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Professional palette: deep navy primary, gold accent, neutral grays */
+  --primary: #0b3d91; /* deep navy */
+  --accent: #d4af37; /* gold accent */
+  --muted: #6b7280;
+  --card-border: rgba(11,61,145,0.06);
+  --surface: #ffffff;
+  --success: #047857;
+  --danger: #b91c1c;
+}
+
 @layer base {
   body {
     @apply bg-gradient-to-br from-blue-50 via-white to-blue-50;
@@ -10,7 +21,11 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-white bg-primary hover:bg-blue-700 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+    @apply inline-flex items-center justify-center px-6 py-3 text-white rounded-lg font-semibold;
+    background-color: var(--primary);
+    color: #ffffff;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .btn-secondary {
@@ -18,11 +33,32 @@
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 text-primary border-2 border-primary hover:bg-primary hover:text-white rounded-lg font-semibold transition-all duration-300;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+  }
+
+  /* Hero-specific outline for dark backgrounds */
+  .btn-outline-hero {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #ffffff;
+  }
+
+  /* Accent button (gold) for high-emphasis actions on dark backgrounds */
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold;
+    background: var(--accent);
+    color: var(--primary);
   }
 
   .card {
-    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden;
+    @apply rounded-xl overflow-hidden;
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    padding: 1rem;
   }
 
   .input-field {
@@ -42,7 +78,9 @@
   }
 
   .badge-success {
-    @apply inline-block px-4 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold;
+    @apply inline-block px-4 py-1 rounded-full text-sm font-semibold;
+    background: rgba(4,120,87,0.08);
+    color: var(--success);
   }
 
   .badge-warning {
@@ -50,7 +88,9 @@
   }
 
   .badge-info {
-    @apply inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold;
+    @apply inline-block px-4 py-1 rounded-full text-sm font-semibold;
+    background: rgba(11,61,145,0.06);
+    color: var(--primary);
   }
 }
 
@@ -220,4 +260,83 @@
 
 .rotate-border {
   animation: rotate-border 2s ease-in-out infinite;
+}
+
+/* ===== Global overrides: disable borders, shadows, and animations ===== */
+/* Purpose: make UI strictly professional by removing decorative borders, shadows and motion */
+
+/* Disable common Tailwind shadow utilities */
+.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl, .shadow-3xl {
+  box-shadow: none !important;
+}
+
+/* Disable border utilities */
+.border, .border-0, .border-2, .border-4, [class*="border-"] {
+  border: none !important;
+}
+
+/* Neutralize animations, transitions and transforms */
+[class*="animate-"], [class*="slide-"], [class*="fade-"], [class*="float-"], [class*="bounce"], [class*="pulse"], [class*="scale-"], [class*="slide-in-"], .float-animation, .glow-text {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Disable specific animation helper classes */
+.animate-bounce, .animate-pulse, .animate-in, .animate-fade, .slide-up, .slide-in-from-bottom-5, .slide-in-from-top-5, .flip-in, .gradient-shift, .rotate-border {
+  animation: none !important;
+}
+
+/* Neutralize card and button effects */
+.card, .btn-primary, .btn-outline {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  transform: none !important;
+}
+
+/* Remove text glow */
+.glow-text {
+  text-shadow: none !important;
+}
+
+/* Keep keyboard focus outlines for accessibility */
+*:focus {
+  outline: 2px solid rgba(30, 64, 175, 0.85);
+  outline-offset: 2px;
+}
+
+/* ===== Color utility mappings to professional palette ===== */
+/* These map commonly used utility classes to the new theme variables so components update automatically */
+.text-primary { color: var(--primary) !important; }
+.text-accent { color: var(--accent) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.bg-accent { background-color: var(--accent) !important; }
+.border-primary { border-color: var(--primary) !important; }
+.text-success { color: var(--success) !important; }
+.text-danger { color: var(--danger) !important; }
+
+/* Gradient helpers (basic) */
+.from-primary { --tw-gradient-from: var(--primary); --tw-gradient-stops: var(--primary), var(--tw-gradient-to, rgba(255,255,255,0)); }
+.via-primary { --tw-gradient-to: var(--primary); }
+.to-primary { --tw-gradient-to: var(--primary); }
+
+/* Neutralize some default color utilities to match professional surface */
+.bg-blue-50 { background-color: #f8fafc !important; }
+.bg-green-50 { background-color: #f6fffb !important; }
+.bg-yellow-50 { background-color: #fffbeb !important; }
+
+/* Small badge and accent overrides */
+.badge-success { background: rgba(4,120,87,0.08) !important; color: var(--success) !important; }
+.badge-warning { background: rgba(212,175,55,0.08) !important; color: var(--accent) !important; }
+
+/* Buttons hover/active neutralization (keep color but remove transform) */
+.btn-primary:hover, .btn-primary:active { background-color: var(--primary) !important; transform: none !important; }
+.btn-outline:hover, .btn-outline:active { background-color: rgba(11,61,145,0.08) !important; color: var(--primary) !important; }
+
+/* Ensure code blocks and inline code use subtle surface */
+.code, code, .inline-code {
+  background: rgba(15,23,42,0.03);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
 }
