@@ -149,7 +149,7 @@ export default function Home() {
           </p>
           <Link
             to="/voter-login"
-            className="inline-block btn-primary bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 transform hover:scale-110 transition-all duration-300 animate-in fade-in slide-up duration-500 delay-400"
+            className="inline-block btn-outline-hero text-lg px-8 py-4"
           >
             Cast Your Vote Now
           </Link>
