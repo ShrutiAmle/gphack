@@ -49,7 +49,7 @@ export default function VotingBooth({ voterId, onVoteSubmitted }: VotingBoothPro
       // Redirect after showing success
       setTimeout(() => {
         onVoteSubmitted()
-        navigate('/')
+        navigate('/vote-confirmation')
       }, 2500)
     }, 2000)
   }

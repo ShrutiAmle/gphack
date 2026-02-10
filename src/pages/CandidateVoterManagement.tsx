@@ -296,7 +296,7 @@ export default function CandidateVoterManagement() {
         {/* Back Button */}
         <div className="text-center mt-8">
           <button
-            onClick={() => navigate('/election-management')}
+            onClick={() => navigate('/admin/election-management')}
             className="text-primary hover:text-primary/80 font-semibold inline-flex items-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

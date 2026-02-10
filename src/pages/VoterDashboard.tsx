@@ -32,16 +32,19 @@ export default function VoterDashboard() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-4xl mx-auto">
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-10">
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-2 text-sm font-semibold mb-4">
+            Verified Voter Session
+          </div>
           <h1 className="heading-1 text-4xl mb-2">Voter Dashboard</h1>
-          <p className="text-gray-600">Your voting information and election status</p>
+          <p className="text-gray-600">Track your status, turnout, and election updates.</p>
         </div>
 
         {/* Voter Info Card */}
-        <div className="card p-8 mb-8 border-l-4 border-primary">
+        <div className="card p-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <p className="text-sm text-gray-600 font-semibold mb-1">Voter ID</p>
@@ -70,7 +73,7 @@ export default function VoterDashboard() {
 
         {/* Action Buttons */}
         {!stats.hasVoted && (
-          <div className="mb-8 flex gap-4">
+          <div className="mb-8 flex flex-col sm:flex-row gap-4">
             <button
               onClick={() => navigate('/voting-booth')}
               className="btn-primary text-lg px-8 py-4"
@@ -96,17 +99,20 @@ export default function VoterDashboard() {
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="card p-6 text-center">
+          <div className="card p-6">
             <p className="text-gray-600 text-sm font-semibold mb-2">Total Registered Voters</p>
             <p className="text-4xl font-bold text-primary">{stats.totalVoters.toLocaleString()}</p>
+            <p className="text-xs text-gray-500 mt-2">Official roll for your ward</p>
           </div>
-          <div className="card p-6 text-center">
+          <div className="card p-6">
             <p className="text-gray-600 text-sm font-semibold mb-2">Votes Cast</p>
             <p className="text-4xl font-bold text-primary">{stats.votesReceived.toLocaleString()}</p>
+            <p className="text-xs text-gray-500 mt-2">Live turnout snapshot</p>
           </div>
-          <div className="card p-6 text-center">
+          <div className="card p-6">
             <p className="text-gray-600 text-sm font-semibold mb-2">Voter Turnout</p>
             <p className="text-4xl font-bold text-primary">{stats.turnout}%</p>
+            <p className="text-xs text-gray-500 mt-2">Updated periodically</p>
           </div>
         </div>
 

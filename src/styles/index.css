@@ -21,11 +21,8 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-white rounded-lg font-semibold;
-    background-color: var(--primary);
-    color: #ffffff;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    @apply inline-flex items-center justify-center px-6 py-3 text-white rounded-xl font-semibold transition;
+    background: linear-gradient(135deg, var(--primary), #1d4ed8);
   }
 
   .btn-secondary {
@@ -33,9 +30,9 @@
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold transition;
     background: transparent;
-    border: 1px solid var(--primary);
+    border: 1px solid rgba(11,61,145,0.22);
     color: var(--primary);
   }
 
@@ -57,8 +54,9 @@
   .card {
     @apply rounded-xl overflow-hidden;
     background: var(--surface);
-    border: 1px solid var(--card-border);
+    border: 1px solid rgba(11,61,145,0.10);
     padding: 1rem;
+    box-shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
   }
 
   .input-field {
@@ -227,6 +225,7 @@
   }
 }
 
+/* Optional glow utility (used sparingly) */
 .glow-text {
   animation: glow 2s infinite;
 }
@@ -262,42 +261,12 @@
   animation: rotate-border 2s ease-in-out infinite;
 }
 
-/* ===== Global overrides: disable borders, shadows, and animations ===== */
-/* Purpose: make UI strictly professional by removing decorative borders, shadows and motion */
-
-/* Disable common Tailwind shadow utilities */
-.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl, .shadow-3xl {
-  box-shadow: none !important;
-}
-
-/* Disable border utilities */
-.border, .border-0, .border-2, .border-4, [class*="border-"] {
-  border: none !important;
-}
-
-/* Neutralize animations, transitions and transforms */
-[class*="animate-"], [class*="slide-"], [class*="fade-"], [class*="float-"], [class*="bounce"], [class*="pulse"], [class*="scale-"], [class*="slide-in-"], .float-animation, .glow-text {
+/* Turn off Tailwind-style animation helper classes globally (no motion UI) */
+[class*="animate-"],
+[class*="slide-in-"],
+.slide-up,
+.float-animation {
   animation: none !important;
-  transition: none !important;
-  transform: none !important;
-}
-
-/* Disable specific animation helper classes */
-.animate-bounce, .animate-pulse, .animate-in, .animate-fade, .slide-up, .slide-in-from-bottom-5, .slide-in-from-top-5, .flip-in, .gradient-shift, .rotate-border {
-  animation: none !important;
-}
-
-/* Neutralize card and button effects */
-.card, .btn-primary, .btn-outline {
-  box-shadow: none !important;
-  border: none !important;
-  background: transparent !important;
-  transform: none !important;
-}
-
-/* Remove text glow */
-.glow-text {
-  text-shadow: none !important;
 }
 
 /* Keep keyboard focus outlines for accessibility */

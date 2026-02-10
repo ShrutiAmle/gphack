@@ -1,0 +1,86 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgIndia" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FDF6EC"/>
+      <stop offset="0.5" stop-color="#E5F1FF"/>
+      <stop offset="1" stop-color="#F2FFF6"/>
+    </linearGradient>
+    <linearGradient id="flagBar" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#FF9933"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#138808"/>
+    </linearGradient>
+    <linearGradient id="cardIndia" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0B3D91" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#0B3D91" stop-opacity="0.02"/>
+    </linearGradient>
+    <filter id="softIndia" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1200" height="800" rx="56" fill="url(#bgIndia)"/>
+
+  <!-- soft circles -->
+  <circle cx="210" cy="190" r="140" fill="#FF9933" fill-opacity="0.10" filter="url(#softIndia)"/>
+  <circle cx="1040" cy="220" r="170" fill="#0B3D91" fill-opacity="0.10" filter="url(#softIndia)"/>
+  <circle cx="980" cy="640" r="190" fill="#138808" fill-opacity="0.10" filter="url(#softIndia)"/>
+
+  <!-- central card -->
+  <rect x="330" y="130" width="540" height="520" rx="30" fill="#FFFFFF"/>
+  <rect x="350" y="150" width="500" height="480" rx="24" fill="url(#cardIndia)"/>
+
+  <!-- flag bar -->
+  <rect x="370" y="172" width="460" height="32" rx="16" fill="url(#flagBar)"/>
+
+  <!-- Ashoka Chakra -->
+  <circle cx="600" cy="188" r="11" fill="#FFFFFF"/>
+  <circle cx="600" cy="188" r="9" fill="#0B3D91"/>
+  <circle cx="600" cy="188" r="3" fill="#FFFFFF"/>
+
+  <!-- evm header -->
+  <rect x="380" y="220" width="440" height="46" rx="13" fill="#FFFFFF" fill-opacity="0.90"/>
+  <rect x="398" y="233" width="180" height="20" rx="10" fill="#0B3D91" fill-opacity="0.75"/>
+  <rect x="592" y="233" width="110" height="20" rx="10" fill="#CBD5F5"/>
+
+  <!-- option rows -->
+  <g>
+    <rect x="380" y="292" width="440" height="72" rx="16" fill="#FFFFFF" fill-opacity="0.95"/>
+    <rect x="380" y="374" width="440" height="72" rx="16" fill="#FFFFFF" fill-opacity="0.95"/>
+    <rect x="380" y="456" width="440" height="72" rx="16" fill="#FFFFFF" fill-opacity="0.95"/>
+    <rect x="380" y="538" width="440" height="72" rx="16" fill="#FFFFFF" fill-opacity="0.95"/>
+  </g>
+
+  <!-- party names -->
+  <g fill="#0B3D91" fill-opacity="0.72">
+    <rect x="454" y="312" width="220" height="18" rx="9"/>
+    <rect x="454" y="394" width="210" height="18" rx="9"/>
+    <rect x="454" y="476" width="200" height="18" rx="9"/>
+    <rect x="454" y="558" width="180" height="18" rx="9"/>
+  </g>
+
+  <!-- radio dots -->
+  <g>
+    <circle cx="418" cy="328" r="15" fill="#E2E8F0"/>
+    <circle cx="418" cy="410" r="15" fill="#E2E8F0"/>
+    <circle cx="418" cy="492" r="15" fill="#E2E8F0"/>
+    <circle cx="418" cy="574" r="15" fill="#E2E8F0"/>
+  </g>
+
+  <!-- selected option (blue check) -->
+  <circle cx="418" cy="410" r="15" fill="#0B3D91" fill-opacity="0.15"/>
+  <path d="M410 410.5 L415.5 416 L427 404" stroke="#0B3D91" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- finger with indelible ink (right side) -->
+  <g>
+    <rect x="840" y="320" width="80" height="210" rx="40" fill="#FDEAD7"/>
+    <rect x="852" y="332" width="56" height="186" rx="28" fill="#FAD3AA"/>
+    <rect x="852" y="332" width="56" height="56" rx="28" fill="#0B3D91" fill-opacity="0.14"/>
+    <rect x="876" y="332" width="6" height="32" rx="3" fill="#1E3A8A"/>
+  </g>
+
+  <!-- bottom seal -->
+  <circle cx="738" cy="602" r="30" fill="#FF9933" fill-opacity="0.20"/>
+  <circle cx="738" cy="602" r="18" fill="#FFB866" fill-opacity="0.70"/>
+</svg>

@@ -293,7 +293,7 @@ export default function ElectionManagement() {
         {/* Management Options */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
           <button
-            onClick={() => navigate('/management')}
+            onClick={() => navigate('/admin/management')}
             className="card p-6 text-center hover:shadow-lg transition"
           >
             <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
@@ -306,7 +306,7 @@ export default function ElectionManagement() {
           </button>
 
           <button
-            onClick={() => navigate('/audit-logs')}
+            onClick={() => navigate('/admin/audit-logs')}
             className="card p-6 text-center hover:shadow-lg transition"
           >
             <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
@@ -322,7 +322,7 @@ export default function ElectionManagement() {
         {/* Back Button */}
         <div className="text-center mt-8">
           <button
-            onClick={() => navigate('/admin-dashboard')}
+            onClick={() => navigate('/admin/dashboard')}
             className="text-primary hover:text-primary/80 font-semibold inline-flex items-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

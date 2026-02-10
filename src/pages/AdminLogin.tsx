@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function AdminLogin() {
+interface AdminLoginProps {
+  onLogin: () => void
+}
+
+export default function AdminLogin({ onLogin }: AdminLoginProps) {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     username: '',
@@ -53,7 +57,8 @@ export default function AdminLogin() {
     if ((formData.username === 'admin' || formData.username === 'superadmin') && formData.password === 'admin') {
       setMessage('Login successful! Redirecting to dashboard...')
       setTimeout(() => {
-        navigate('/admin-dashboard')
+        onLogin()
+        navigate('/admin/dashboard')
       }, 1500)
     } else {
       setErrors(prev => ({
